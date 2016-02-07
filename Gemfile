@@ -23,6 +23,18 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# use kaminari for pagination
+gem 'kaminari'
+
+#Use Device for user
+gem 'devise'
+
+# Use mySQL gem
+gem 'mysql2', '~> 0.3.18'
+
+#Thin webserver
+gem 'thin'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
