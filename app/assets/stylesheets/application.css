@@ -14,4 +14,8 @@
  *= require font-awesome.min
  *= require bootstrap.min
  *= require uniform.default
+ *= require components
+ *= require plugins
+ *= require layout
+ *= require default
  */

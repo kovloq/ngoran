@@ -16,4 +16,3 @@
 //= require bootstrap.min
 //= require metronic
 //= require layout
-//= require_tree .
