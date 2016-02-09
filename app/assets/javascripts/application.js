@@ -16,3 +16,5 @@
 //= require bootstrap.min
 //= require metronic
 //= require layout
+//= require moment
+//= require fullcalendar

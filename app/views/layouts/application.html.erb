@@ -19,88 +19,125 @@
  });
 </script>
 </head>
+
 <body class="page-header-fixed page-footer-fixed page-container-bg-solid page-sidebar-closed-hide-logo page-sidebar-closed">
-	<div class="page-header navbar navbar-fixed-top">
-		<!-- BEGIN HEADER INNER -->
-		<div class="page-header-inner container">
-			<div class="page-header-inner">
-				<!-- BEGIN LOGO -->
-				<div class="page-logo">
-					<a href="index.html">
-						
-						
-					</a>
-					<div class="menu-toggler sidebar-toggler"></div>
-				</div>
-				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
-				<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
-				</a>
-				<!-- BEGIN PAGE TOP -->
-				<div class="page-top">
-					
-					<!-- BEGIN TOP NAVIGATION MENU -->
-					<div class="top-menu">
-						<ul class="nav navbar-nav pull-right">
-							<!-- BEGIN USER LOGIN DROPDOWN -->
-					
-							<li class="dropdown dropdown-user">
-								<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-								<img alt="" class="img-circle" src=""/>
-								<span class="username username-hide-on-mobile">
-								Nama User</span>
-								<i class="fa fa-angle-down"></i>
-								</a>
-								<ul class="dropdown-menu dropdown-menu-default">
-									<li>
-										<a href="extra_profile.html">
-										<i class="icon-user"></i> Profil saya </a>
-									</li>
-									
-									<li>
-										<a href="#">
-										
-										<i class="icon-key"></i> Log Out </a>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<!-- END USER LOGIN DROPDOWN -->
-						</ul>
-					</div>
-					<!-- END TOP NAVIGATION MENU -->
-				</div>
-				<!-- END PAGE TOP -->
-			</div>
-			
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+	<!-- BEGIN HEADER INNER -->
+	<div class="page-header-inner">
+		<!-- BEGIN LOGO -->
+		<div class="page-logo">
+			<a href="<%= root_url %>">
+				<%= image_tag("logo_ngoran.png", :height=>"30",:alt => "Logo",:class => "logo-default") %>
+				
+			</a>
+			<div class="menu-toggler sidebar-toggler"></div>
 		</div>
+		<!-- END LOGO -->
+		<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+		<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+		</a>
+		<!-- END RESPONSIVE MENU TOGGLER -->
+		
+		<!-- BEGIN PAGE TOP -->
+		<div class="page-top">
+			<%= image_tag("ngoran.png", :style=>"margin-left:10px;", :height=>"70",:alt => "Logo") %>
+			<!-- BEGIN TOP NAVIGATION MENU -->
+			<div class="top-menu">
+				<ul class="nav navbar-nav pull-right">
+					
+					<!-- BEGIN USER LOGIN DROPDOWN -->
+					
+					<li class="dropdown dropdown-user">
+						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+						<img alt="" class="img-circle" src=""/>
+						<span class="username username-hide-on-mobile">
+						Nama Admin
+						<i class="fa fa-angle-down"></i>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-default">
+							<li>
+								<a href="extra_profile.html">
+								<i class="icon-user"></i> My Profile </a>
+							</li>
+							
+							<li>
+								<a href="Logout">
+								
+								<i class="icon-key"></i> Log Out </a>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<!-- END USER LOGIN DROPDOWN -->
+				</ul>
+			</div>
+			<!-- END TOP NAVIGATION MENU -->
+		</div>
+		<!-- END PAGE TOP -->
+	</div>
+	<!-- END HEADER INNER -->
+</div>
+<!-- END HEADER -->
+<div class="clearfix">
+</div>
+
+	<!-- BEGIN CONTAINER -->
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<div class="page-sidebar-wrapper">
+			<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+			<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+			<div class="page-sidebar navbar-collapse collapse">
+				<!-- BEGIN SIDEBAR MENU -->
+				
+				<ul class="page-sidebar-menu page-sidebar-menu-hover-submenu page-sidebar-menu-closed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+					<li class="start">
+						<a href="">
+                        <i class="icon-home"></i>
+                        <span class="title">Dashboard</span>
+                        </a>
+								
+					</li>
+					<li >
+						<a href="<%= calendars_url %>">
+                        <i class="icon-calendar"></i>
+                        <span class="title">Calendar</span>
+                        </a>
+					</li>
+					<li class="last">
+						<a href="">
+                        <i class="icon-pointer"></i>
+                        <span class="title">Map</span>
+                        </a>
+					</li>
+					
+				</ul>
+				<!-- END SIDEBAR MENU -->
+			</div>
+		</div>
+		<!-- END SIDEBAR -->
+		<!-- BEGIN CONTENT -->
+		<div class="page-content-wrapper">
+			<div class="page-content">
+				<%= yield %>
+			</div>
+		</div>
+		<!-- END CONTENT -->
 		
 	</div>
-	<div class="clearfix"></div>
-	<div class="page-container">
-		<div class="page-sidebar-wrapper">
-			<div class="page-sidebar navbar-collapse collapse">
-				<ul class="page-sidebar-menu page-sidebar-menu-hover-submenu page-sidebar-menu-closed" data-slide-speed="200" data-auto-scroll="true" data-keep-expanded="false">
-					<li>
-						<a title="Dashboard" name="Dashboard" href="/user/"><i class="icon-home"></i>
-                                <span class="title">Dashboard</span>
-						</a>								
-					</li>
-				</ul>
-				
-			</div>
-		</div>
-		<div class="page-content-wrapper">
-			<%= yield %>
-		</div>
-	</div>
+	<!-- END CONTAINER -->
+	<!-- BEGIN FOOTER -->
 	<div class="page-footer">
 		<div class="page-footer-inner">
 			 2016 &copy; Created by: Dana.
 		</div>
-		<div class="scroll-to-top" style="display: block;">
+		<div class="scroll-to-top">
 			<i class="icon-arrow-up"></i>
 		</div>
 	</div>
+	<!-- END FOOTER -->
+
 
 </body>
 </html>

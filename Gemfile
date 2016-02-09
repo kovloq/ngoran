@@ -35,6 +35,9 @@ gem 'mysql2', '~> 0.3.18'
 #Thin webserver
 gem 'thin'
 
+#simple form
+gem 'simple_form'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
