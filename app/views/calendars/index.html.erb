@@ -1,16 +1,71 @@
+<h3 class="page-title">Calendar</h3>
+
 <div class="row">
-	<div class="col-md-9">
-		<div id="calendar"></div>
-	</div>
-	<div class="col-md-3">
+	<div class="col-md-12">
+		<div class="portlet box green-meadow">
+			<div class="portlet-title">
+				
+				<div class="caption">
+					<i class="fa fa-calendar"></i>Calendar
+				</div>
+			</div>
+			<div class="portlet-body">
+				<div class="row">
+					<div class="col-md-3 col-sm-12">
+					</div>
+					<div class="col-md-9 col-sm-12">
+						<div id="calendar">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 	</div>
 </div>
 <script>
 $(document).ready(function() {
 
     // page is now ready, initialize the calendar...
+    var h = {};
+    
 
+    if (Metronic.isRTL()) {
+        if ($('#calendar').parents(".portlet").width() <= 720) {
+            $('#calendar').addClass("mobile");
+            h = {
+                right: 'title, prev, next',
+                center: '',
+                left: 'agendaDay, agendaWeek, month, today'
+            };
+        } else {
+            $('#calendar').removeClass("mobile");
+            h = {
+                right: 'title',
+                center: '',
+                left: 'agendaDay, agendaWeek, month, today, prev,next'
+            };
+        }
+    } else {
+        if ($('#calendar').parents(".portlet").width() <= 720) {
+            $('#calendar').addClass("mobile");
+            h = {
+                left: 'title, prev, next',
+                center: '',
+                right: 'today,month,agendaWeek,agendaDay'
+            };
+        } else {
+            $('#calendar').removeClass("mobile");
+            h = {
+                left: 'title',
+                center: '',
+                right: 'prev,next,today,month,agendaWeek,agendaDay'
+            };
+        }
+    }
     $('#calendar').fullCalendar({
+    	header: h,
+        defaultView: 'month', 
     	lang: 'ja'
         // put your options and callbacks here
     })

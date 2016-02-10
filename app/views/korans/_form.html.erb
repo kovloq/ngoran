@@ -1,0 +1,34 @@
+<div class="portlet light">
+	<div class="portlet-title">
+		<div class="caption font-green-haze">
+			<i class="icon-settings font-green-haze"></i>
+			<span class="caption-subject bold uppercase"> Koran</span>
+		</div>
+		<div class="actions">
+			<a href="javascript:;" class="btn btn-circle btn-icon-only blue">
+			<i class="icon-cloud-upload"></i>
+			</a>
+			<a href="javascript:;" class="btn btn-circle btn-icon-only green">
+			<i class="icon-wrench"></i>
+			</a>
+			<a href="javascript:;" class="btn btn-circle btn-icon-only red">
+			<i class="icon-trash"></i>
+			</a>
+			<a title="" data-original-title="" href="javascript:;" class="btn btn-circle btn-icon-only btn-default fullscreen">
+			</a>
+		</div>
+	</div>
+	<div class="portlet-body form">
+		<%= simple_form_for(@koran,{ :class => 'form-horizontal' }) do |f| %>
+		  <%= f.error_notification %>
+  		  <%= f.input :name %>
+  		  <%= f.input :image %>
+  		  <%= f.input :website %>
+  		  <%= f.input :terbit %>
+
+		  <div class="form-actions">
+		    <%= f.button :submit,class: 'btn btn-primary',value: 'Submit' %>
+		  </div>
+		<% end %>
+	</div>
+</div>

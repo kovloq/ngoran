@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :calendars
+  resources :maps
+  resources :korans
+  resources :customers
 
   root 'home#index'
 
