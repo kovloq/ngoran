@@ -1,8 +1,26 @@
+<h3 class="page-title">Calendar</h3>
+
 <div class="row">
-<%= simple_form_for @calendar do |f| %>
-  <%= f.input :tanggal %>
-  <%= f.input :event %>
-  <%= f.input :type %>
-  <%= f.button :submit %>
-<% end %>
+	<div class="portlet box red">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class="fa fa-calendar"></i>
+				New Calendar
+			</div>
+		</div>
+		<div class="portlet-body form">
+			<%= simple_form_for @calendar do |f| %>
+			<div class="form-body">
+			  <%= f.input :tanggal, as: :date,input_html: {class: "date-picker"} %>
+			  <%= f.input :event %>
+			  <div class="checkbox-list">
+			  	<%= f.input :type %>
+			  </div>
+			</div>
+			<div class="form-actions right">
+			  <%= f.button :submit %>
+			</div>
+			<% end %>
+		</div>
+	</div>
 </div>

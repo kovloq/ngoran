@@ -1,5 +1,9 @@
 <h3 class="page-title">Calendar</h3>
-
+<style>
+.holiday{
+    background-color:#f95c5c;
+    }
+</style>
 <div class="row">
 	<div class="col-md-12">
 		<div class="portlet box green-meadow">
@@ -12,6 +16,11 @@
 			<div class="portlet-body">
 				<div class="row">
 					<div class="col-md-3 col-sm-12">
+                        <ul class="list-group">
+                            <% @calendars.each do |calendar| %>
+                            <li class="list-group-item"><a href="#" data="<%= calendar.tanggal %>" class="goto"><%= calendar.event %> <%= calendar.tanggal %></a></li>
+                            <% end %>
+                        </ul>
 					</div>
 					<div class="col-md-9 col-sm-12">
 						<div id="calendar">
@@ -66,9 +75,19 @@ $(document).ready(function() {
     $('#calendar').fullCalendar({
     	header: h,
         defaultView: 'month', 
-    	lang: 'ja'
+    	lang: 'ja',
+        events:<%= raw(@scripts.to_json) %>,
+        eventRender: function (event, element) {
+            var dataToFind = moment(event.start).format('YYYY-MM-DD');
+            $("td[data-date='"+dataToFind+"']").addClass('holiday');
+        }
         // put your options and callbacks here
     })
+
+    $(".goto").click(function(){
+        tanggal=$(this).attr("data");
+        $("#calendar").fullCalendar('gotoDate', tanggal);
+    });
 
 });
 </script>

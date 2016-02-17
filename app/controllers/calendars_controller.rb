@@ -1,5 +1,7 @@
 class CalendarsController < ApplicationController
   def index
+    @calendars=Calendar.order("tanggal ASC");
+    @scripts=Calendar.select("event as title,tanggal as start");
   end
 
   def edit
