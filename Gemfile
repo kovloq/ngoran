@@ -38,6 +38,9 @@ gem 'thin'
 #simple form
 gem 'simple_form'
 
+#Forecast
+gem 'forecast_io'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'weather/index'
+
   resources :calendars
   resources :maps
   resources :korans

@@ -1,3 +1,7 @@
 .page-logo .logo-default{
 	margin-top:20px !important;
 }
+
+.clearboth{
+	clear:both;
+}

@@ -1,0 +1,79 @@
+<h1>博多駅南</h1>
+
+<br/>
+<h3>今 <%= Time.at(@forecast.currently.time).strftime("%-m/%d") %></h3>
+<div class="pull-left" style="font-size:50px;">
+	<i class="wi wi-forecast-io-<%= @forecast.currently.icon %>"></i>
+</div>
+	<div class="pull-left" style="font-size:40px;margin-left:5px;">
+		<%= @forecast.currently.temperature.ceil %>
+	</div>
+<div class="clearboth"></div>
+<h4><%= @forecast.currently.summary %></h4>
+<br/>
+
+<div class="portlet box red">
+	<div class="portlet-title">
+		<div class="caption">
+			<i style="font-size:15px" class="wi wi-forecast-io-<%= @forecast.hourly.icon %>"></i>
+			Hourly
+		</div>
+		<div class="tools">
+			<a class="collapse" href="javascript:;" data-original-title="" title="">
+									</a>
+		</div>
+	</div>
+	<div class="portlet-body">
+		<div class="row">
+			<%
+			i=0; 
+			@forecast.hourly.data.each do |hour| 
+				if hour.time.to_f > Time.now.to_f && i < 13
+					%>
+					<div class="col-md-1 text-center">
+						<%= Time.at(hour.time).strftime("%k") %><br/>
+						<i style="font-size:25px;" class="wi wi-forecast-io-<%= hour.icon %>"></i><br/>
+						<%= hour.temperature %>
+					</div>
+					<%
+				end
+			i=i+1; 
+			end 
+			%>
+		</div>
+	</div>
+</div>
+
+<div class="portlet box red">
+	<div class="portlet-title">
+		<div class="caption">
+			<i style="font-size:15px" class="wi wi-forecast-io-<%= @forecast.daily.icon %>"></i>
+			Daily
+		</div>
+		<div class="tools">
+			<a class="collapse" href="javascript:;" data-original-title="" title="">
+									</a>
+		</div>
+	</div>
+	<div class="portlet-body">
+		<table class="table">
+			<%
+			i=0; 
+			@forecast.daily.data.each do |day| 
+				
+					%>
+					<tr>
+						<td><%= Time.at(day.time).strftime("%A") %></td>
+						<td><i style="font-size:25px;" class="wi wi-forecast-io-<%= day.icon %>"></i></td>
+						<td><%= ((day.temperatureMin + day.temperatureMax)/2).to_i %></td>
+					</tr>
+					<%
+				
+			i=i+1; 
+			end 
+			%>
+		</table>
+	</div>
+</div>
+
+

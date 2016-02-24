@@ -19,5 +19,6 @@
  *= require layout
  *= require default
  *= require fullcalendar
+ *= require weather-icons
  *= require ngoran
  */
