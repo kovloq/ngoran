@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @delivery.customer_id %>
+</p>
+
+<p>
+  <strong>Koran:</strong>
+  <%= @delivery.koran_id %>
+</p>
+
+<p>
+  <strong>Monday:</strong>
+  <%= @delivery.monday %>
+</p>
+
+<p>
+  <strong>Tuesday:</strong>
+  <%= @delivery.tuesday %>
+</p>
+
+<p>
+  <strong>Wednesday:</strong>
+  <%= @delivery.wednesday %>
+</p>
+
+<p>
+  <strong>Thursday:</strong>
+  <%= @delivery.thursday %>
+</p>
+
+<p>
+  <strong>Friday:</strong>
+  <%= @delivery.friday %>
+</p>
+
+<p>
+  <strong>Saturday:</strong>
+  <%= @delivery.saturday %>
+</p>
+
+<p>
+  <strong>Sunday:</strong>
+  <%= @delivery.sunday %>
+</p>
+
+<%= link_to 'Edit', edit_delivery_path(@delivery) %> |
+<%= link_to 'Back', deliveries_path %>

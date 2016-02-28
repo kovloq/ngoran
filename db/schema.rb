@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210101103) do
+ActiveRecord::Schema.define(version: 20160228114720) do
 
   create_table "calendars", force: :cascade do |t|
     t.date     "tanggal"
@@ -30,13 +30,41 @@ ActiveRecord::Schema.define(version: 20160210101103) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "days", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "name_kana",  limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "deliveries", force: :cascade do |t|
+    t.integer  "customer_id", limit: 4
+    t.integer  "koran_id",    limit: 4
+    t.boolean  "monday",      limit: 1
+    t.boolean  "tuesday",     limit: 1
+    t.boolean  "wednesday",   limit: 1
+    t.boolean  "thursday",    limit: 1
+    t.boolean  "friday",      limit: 1
+    t.boolean  "saturday",    limit: 1
+    t.boolean  "sunday",      limit: 1
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "korans", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "image",      limit: 255
     t.string   "website",    limit: 255
-    t.string   "terbit",     limit: 255
+    t.integer  "day_id",     limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.boolean  "monday",     limit: 1
+    t.boolean  "tuesday",    limit: 1
+    t.boolean  "wednesday",  limit: 1
+    t.boolean  "thursday",   limit: 1
+    t.boolean  "friday",     limit: 1
+    t.boolean  "saturday",   limit: 1
+    t.boolean  "sunday",     limit: 1
   end
 
 end

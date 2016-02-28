@@ -4,9 +4,11 @@ class CreateKorans < ActiveRecord::Migration
       t.string :name
       t.string :image
       t.string :website
-      t.string :terbit
+      
+      t.boolean :day_id
 
       t.timestamps null: false
     end
+    execute 'ALTER TABLE `korans` CONVERT TO CHARACTER SET utf8';
   end
 end

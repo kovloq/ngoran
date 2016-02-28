@@ -8,5 +8,6 @@ class CreateCustomers < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    execute 'ALTER TABLE `customers` CONVERT TO CHARACTER SET utf8';
   end
 end

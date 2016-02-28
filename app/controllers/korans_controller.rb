@@ -5,6 +5,7 @@ class KoransController < ApplicationController
   # GET /korans.json
   def index
     @korans = Koran.all
+    @days=Day.all
   end
 
   # GET /korans/1
@@ -15,10 +16,12 @@ class KoransController < ApplicationController
   # GET /korans/new
   def new
     @koran = Koran.new
+    @days=Day.all
   end
 
   # GET /korans/1/edit
   def edit
+    @days=Day.all
   end
 
   # POST /korans
@@ -69,6 +72,7 @@ class KoransController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def koran_params
-      params[:koran]
+      params[:koran].permit(:name, :image, :website, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday)
+      # params[:koran]
     end
 end

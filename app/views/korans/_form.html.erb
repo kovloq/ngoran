@@ -22,9 +22,15 @@
 		<%= simple_form_for(@koran,{ :class => 'form-horizontal' }) do |f| %>
 		  <%= f.error_notification %>
   		  <%= f.input :name %>
-  		  <%= f.input :image %>
+  		  <%= f.input :image,as: :file %>
   		  <%= f.input :website %>
-  		  <%= f.input :terbit %>
+  		  <%= f.input :monday,label: @days[0].name_kana,as: :boolean %>
+  		  <%= f.input :tuesday,label: @days[1].name_kana,as: :boolean %>
+  		  <%= f.input :wednesday,label: @days[2].name_kana,as: :boolean %>
+  		  <%= f.input :thursday,label: @days[3].name_kana,as: :boolean %>
+  		  <%= f.input :friday,label: @days[4].name_kana,as: :boolean %>
+  		  <%= f.input :saturday,label: @days[5].name_kana,as: :boolean %>
+  		  <%= f.input :sunday,label: @days[6].name_kana,as: :boolean %>
 
 		  <div class="form-actions">
 		    <%= f.button :submit,class: 'btn btn-primary',value: 'Submit' %>
@@ -32,3 +38,4 @@
 		<% end %>
 	</div>
 </div>
+

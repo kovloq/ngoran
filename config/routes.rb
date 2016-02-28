@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  resources :deliveries
+
+  resources :days
+
   get 'weather/index'
 
   resources :calendars
-  resources :maps
+  get 'map/index'
   resources :korans
   resources :customers
 
