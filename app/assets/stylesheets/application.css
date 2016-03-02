@@ -20,5 +20,7 @@
  *= require default
  *= require fullcalendar
  *= require weather-icons
+ *= require bootstrap.touchspin
+ *= require bootstrap-fileinput
  *= require ngoran
  */

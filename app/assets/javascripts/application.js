@@ -18,3 +18,6 @@
 //= require layout
 //= require moment
 //= require fullcalendar
+//= require jquery.uniform.min
+//= require spinner.min
+//= require bootstrap-fileinput

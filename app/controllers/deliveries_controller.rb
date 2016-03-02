@@ -5,6 +5,8 @@ class DeliveriesController < ApplicationController
   # GET /deliveries.json
   def index
     @deliveries = Delivery.all
+    @days=Day.all
+    @korans=Koran.all
   end
 
   # GET /deliveries/1
@@ -15,15 +17,21 @@ class DeliveriesController < ApplicationController
   # GET /deliveries/new
   def new
     @delivery = Delivery.new
+    @days=Day.all
+    @korans=Koran.all
   end
 
   # GET /deliveries/1/edit
   def edit
+    @days=Day.all
+    @korans=Koran.all
   end
 
   # POST /deliveries
   # POST /deliveries.json
   def create
+    @days=Day.all
+    @korans=Koran.all
     @delivery = Delivery.new(delivery_params)
 
     respond_to do |format|
@@ -40,6 +48,8 @@ class DeliveriesController < ApplicationController
   # PATCH/PUT /deliveries/1
   # PATCH/PUT /deliveries/1.json
   def update
+    @days=Day.all
+    @korans=Koran.all
     respond_to do |format|
       if @delivery.update(delivery_params)
         format.html { redirect_to @delivery, notice: 'Delivery was successfully updated.' }
