@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228114720) do
+ActiveRecord::Schema.define(version: 20160302124043) do
 
   create_table "calendars", force: :cascade do |t|
     t.date     "tanggal"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 20160228114720) do
     t.string   "room_number",   limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "latitude",      limit: 255
+    t.string   "longitude",     limit: 255
+    t.string   "image",         limit: 255
   end
 
   create_table "days", force: :cascade do |t|
@@ -49,6 +52,14 @@ ActiveRecord::Schema.define(version: 20160228114720) do
     t.boolean  "sunday",      limit: 1
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+  end
+
+  create_table "koran_options", force: :cascade do |t|
+    t.integer  "koran_id",        limit: 4
+    t.integer  "koran_option_id", limit: 4
+    t.integer  "delivery_id",     limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "korans", force: :cascade do |t|

@@ -1,30 +1,37 @@
-<h3 class="page-title">Calendar</h3>
+<h3 class="page-title">お核様</h3>
 <p id="notice"><%= notice %></p>
-<div class="table-responsive">
-  <table class="table table-striped table-bordered table-advance table-hover">
-    <thead>
-      <tr>
-        <th><i class="fa fa-user"></i> Name</th>
-        <th><i class="fa fa-building"></i>Buiding Name</th>
-        <th> Room Number</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+<div class="portlet box red">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-user"></i>
+        New User
+      </div>
+    </div>
+    <div class="portlet-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th><i class="fa fa-user"></i> Name</th>
+            <th><i class="fa fa-building"></i>Buiding Name</th>
+            <th> Room Number</th>
+            <th colspan="3">Action</th>
+          </tr>
+        </thead>
 
-    <tbody>
-      <% @customers.each do |customer| %>
-        <tr>
-          <td><%= customer.name %></td>
-          <td><%= customer.building_name %></td>
-          <td><%= customer.room_number %></td>
-          <td><%= link_to 'Show', customer %></td>
-          <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-          <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td><%= customer.name %></td>
+              <td><%= customer.building_name %></td>
+              <td><%= customer.room_number %></td>
+              <td><%= link_to 'Show', customer %></td>
+              <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+              <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 </div>
-<br>
 
 <%= link_to 'New Customer', new_customer_path %>

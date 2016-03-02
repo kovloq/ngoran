@@ -1,34 +1,110 @@
-<div class="portlet light">
-	<div class="portlet-title">
-		<div class="caption font-green-haze">
-			<i class="icon-settings font-green-haze"></i>
-			<span class="caption-subject bold uppercase"> Koran</span>
-		</div>
-		<div class="actions">
-			<a href="javascript:;" class="btn btn-circle btn-icon-only blue">
-			<i class="icon-cloud-upload"></i>
-			</a>
-			<a href="javascript:;" class="btn btn-circle btn-icon-only green">
-			<i class="icon-wrench"></i>
-			</a>
-			<a href="javascript:;" class="btn btn-circle btn-icon-only red">
-			<i class="icon-trash"></i>
-			</a>
-			<a title="" data-original-title="" href="javascript:;" class="btn btn-circle btn-icon-only btn-default fullscreen">
-			</a>
-		</div>
-	</div>
-	<div class="portlet-body form">
-		<%= simple_form_for(@customer,{ :class => 'form-horizontal' }) do |f| %>
-		  <%= f.error_notification %>
-		  <%= f.input :name %>
-		  <%= f.input :address %>
-		  <%= f.input :building_name %>
-		  <%= f.input :room_number %>
-
-		  <div class="form-actions">
-		    <%= f.button :submit,class: 'btn btn-primary',value: 'Submit' %>
+<div class="tabbable-line">
+  <ul class="nav nav-tabs ">
+    <li class="active">
+      <a data-toggle="tab" href="#tab_1" aria-expanded="true"> Customer Info </a>
+    </li>
+    <li >
+      <a data-toggle="tab" href="#tab_2" aria-expanded="true">Map</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <!-- Begin Tab For Customer -->
+    <div id="tab_1" class="tab-pane active">
+		<div class="portlet box red">
+		  <div class="portlet-title">
+		    <div class="caption">
+		      <i class="fa fa-user"></i>
+		      New User
+		    </div>
 		  </div>
-		<% end %>
+		  <div class="portlet-body form">
+			<%= simple_form_for(@customer, multipart: true) do |f| %>
+			  <%= f.error_notification %>
+			  <div class="form-body">
+			  	<div class="row">
+                  <div class="col-md-6">
+			  		<%= f.input :name %>
+			  	  </div>
+			  	  <div class="col-md-6">
+			  	  	<label for="customer_address" class="string optional control-label">Address</label>            
+                    <div style="text-align:left" class="input-group string optional">
+                      <%= f.input_field :address,class: 'form-control' %>
+                      <span class="input-group-btn">
+                        <a id="address_check" class="btn green" href="javascript:;" data-original-title="" title="">
+                        <i class="fa fa-check"></i> Check </a>
+                      </span>
+                    </div>
+			  		
+			  	  </div>
+			  	</div>
+			  	<div class="row">
+			  		<div class="col-md-6">
+					  <%= f.input :building_name %>
+					</div>
+					<div class="col-md-6">
+					  <%= f.input :room_number %>
+					</div>
+				</div>
+				<div class="row">
+			  		<div class="col-md-6">
+					  <%= f.input :latitude,input_html: { readonly: "" } %>
+					</div>
+					<div class="col-md-6">
+					  <%= f.input :longitude,input_html: { readonly: "" } %>
+					</div>
+				</div>
+				<div style="clear:both"></div>
+				<% if @customer.image? %>
+				<%= image_tag(@customer.image_url(:thumb)) %>
+				<%= f.check_box :remove_image %>
+      				Remove Image
+				<% else %>
+				<%= f.input :image,as: :file %>
+				<% end %>
+				
+			   </div>
+
+			  <div class="form-actions right">
+			    <%= f.button :submit,class: 'btn btn-primary',value: 'Submit' %>
+			  </div>
+			<% end %>
+			</div>
+		</div>
 	</div>
+	<div id="tab_2" class="tab-pane">
+      <div class="portlet box red">
+        <div class="portlet-title">
+          <div class="caption">
+            <i class="fa fa-map-marker"></i>
+            New Delivery
+          </div>
+        </div>
+        <div class="portlet-body form">
+          <div id="map" style="width: 100%;height: 500px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+$(document).ready(function(){
+jQuery('.nav-tabs a[href="#tab_2"]').on('shown.bs.tab', function(){
+       google.maps.event.trigger(map, 'resize');
+       map.setZoom(15); //You need to reset zoom
+       map.setCenter(myLatlng); //You need to reset the center
+  });
+$('.spinner').spinner();
+//Google Map
+function initialize() {
+var mapProp = {
+    center:new google.maps.LatLng(33.58,130.42),
+    zoom:15,
+    scrollwheel: false,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("map"),mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+})
+</script>

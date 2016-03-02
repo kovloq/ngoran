@@ -32,10 +32,17 @@ class DeliveriesController < ApplicationController
   def create
     @days=Day.all
     @korans=Koran.all
-    @delivery = Delivery.new(delivery_params)
 
+    @customer=Customer.new(customer_params);
+    @customer.save;
+    params[:delivery][:customer_id]=@customer.id
+    @delivery = Delivery.new(delivery_params);
     respond_to do |format|
       if @delivery.save
+        params[:koran_option][:delivery_id]=@delivery.id
+        params[:koran_option][:koran_id]=@delivery.koran_id
+        @koran_option=KoranOption.new(option_params);
+        @koran_option.save
         format.html { redirect_to @delivery, notice: 'Delivery was successfully created.' }
         format.json { render :show, status: :created, location: @delivery }
       else
@@ -75,6 +82,14 @@ class DeliveriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_delivery
       @delivery = Delivery.find(params[:id])
+    end
+
+    def option_params
+      params.require(:koran_option).permit(:koran_id, :koran_option_id, :delivery_id);
+    end
+
+    def customer_params
+      params.require(:customer).permit(:name, :address, :building_name, :room_number, :latitude, :longitude, :image);
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
