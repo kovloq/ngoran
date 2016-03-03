@@ -89,10 +89,40 @@
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script>
 $(document).ready(function(){
+	var mapProp = {
+    center:new google.maps.LatLng(33.58,130.42),
+    zoom:15,
+    scrollwheel: false,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+	var map=new google.maps.Map(document.getElementById("map"),mapProp);
+	$("#address_check").click(function(){
+		var address=$("#customer_address").val();
+		var url="https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&key=AIzaSyAmPU8UWz5AjNxuQ8DPipi57aRaAl0-ze0";
+		$.get( url, function( data ) {
+		  // $( ".result" ).html( data );
+		  var lat=data.results[0].geometry.location.lat;
+		  var lng=data.results[0].geometry.location.lng;
+		  $("#customer_latitude").val(lat);
+		  $("#customer_longitude").val(lng);
+		 
+		  map.setCenter(new google.maps.LatLng(lat, lng));
+		  
+		  var marker = new google.maps.Marker({
+			    position:new google.maps.LatLng(lat, lng),
+			    title:address
+			});
+		  marker.setMap(map);
+		  // google.maps.event.trigger(map, 'resize');
+		});
+	})
 jQuery('.nav-tabs a[href="#tab_2"]').on('shown.bs.tab', function(){
+	
        google.maps.event.trigger(map, 'resize');
-       map.setZoom(15); //You need to reset zoom
-       map.setCenter(myLatlng); //You need to reset the center
+       map.setCenter(new google.maps.LatLng($("#customer_latitude").val(), $("#customer_longitude").val()));
+       google.maps.event.trigger(map, 'resize');
+       // map.setCenter($("#customer_latitude").val(),$("#customer_longitude").val());
+       
   });
 $('.spinner').spinner();
 //Google Map
@@ -105,6 +135,6 @@ var mapProp = {
   };
   var map=new google.maps.Map(document.getElementById("map"),mapProp);
 }
-google.maps.event.addDomListener(window, 'load', initialize);
+// google.maps.event.addDomListener(window, 'load', initialize);
 })
 </script>
