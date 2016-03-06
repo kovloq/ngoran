@@ -27,7 +27,7 @@ gem 'kaminari'
 
 #Use Device for user
 gem 'devise'
-
+#heroku run rails console
 # Use mySQL gem
 gem 'mysql2', '~> 0.3.18'
 
@@ -43,7 +43,7 @@ gem 'forecast_io'
 gem 'carrierwave'
 # gem "rmagick", "~> 2.13.1"
 # gem 'rmagick', require: false
-# gem "rmagick"
+gem "rmagick"
 # gem "rmagick", "~> 2.12.0", :require => 'RMagick'
 # gem "rmagick", require: 'rmagick'
 group :production do
@@ -63,7 +63,7 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
- 	gem "rmagick"
+ 	
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
