@@ -43,9 +43,10 @@ gem 'forecast_io'
 gem 'carrierwave'
 # gem "rmagick", "~> 2.13.1"
 # gem 'rmagick', require: false
-
+gem "rmagick",:require => 'RMagick'
 group :production do
-gem 'pg'
+	
+	gem 'pg'
 end
 
 # Use ActiveModel has_secure_password
@@ -60,7 +61,7 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
+ 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
