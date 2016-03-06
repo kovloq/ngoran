@@ -42,7 +42,7 @@ gem 'forecast_io'
 
 gem 'carrierwave'
 # gem "rmagick", "~> 2.13.1"
-gem 'rmagick', require: false
+# gem 'rmagick', require: false
 
 group :production do
 gem 'pg'
