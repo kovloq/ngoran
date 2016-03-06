@@ -4,6 +4,7 @@ class DeliveriesController < ApplicationController
   # GET /deliveries
   # GET /deliveries.json
   def index
+    @customer = Customer.find(params[:customer_id])
     @deliveries = Delivery.all
     @days=Day.all
     @korans=Koran.all
@@ -16,6 +17,7 @@ class DeliveriesController < ApplicationController
 
   # GET /deliveries/new
   def new
+    @customer = Customer.find(params[:customer_id])
     @delivery = Delivery.new
     @days=Day.all
     @korans=Koran.all
@@ -23,6 +25,7 @@ class DeliveriesController < ApplicationController
 
   # GET /deliveries/1/edit
   def edit
+    @customer = Customer.find(params[:customer_id])
     @days=Day.all
     @korans=Koran.all
   end
@@ -30,6 +33,7 @@ class DeliveriesController < ApplicationController
   # POST /deliveries
   # POST /deliveries.json
   def create
+    @customer = Customer.find(params[:customer_id])
     @days=Day.all
     @korans=Koran.all
 
@@ -55,6 +59,7 @@ class DeliveriesController < ApplicationController
   # PATCH/PUT /deliveries/1
   # PATCH/PUT /deliveries/1.json
   def update
+    @customer = Customer.find(params[:customer_id])
     @days=Day.all
     @korans=Koran.all
     respond_to do |format|
@@ -71,6 +76,7 @@ class DeliveriesController < ApplicationController
   # DELETE /deliveries/1
   # DELETE /deliveries/1.json
   def destroy
+    @customer = Customer.find(params[:customer_id])
     @delivery.destroy
     respond_to do |format|
       format.html { redirect_to deliveries_url, notice: 'Delivery was successfully destroyed.' }

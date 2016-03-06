@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :deliveries
+  
 
   resources :days
 
@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :calendars
   get 'map/index'
   resources :korans
-  resources :customers
+  resources :customers do
+    resources :deliveries
+  end
 
   root 'home#index'
 

@@ -3,6 +3,7 @@ class CreateDeliveries < ActiveRecord::Migration
     create_table :deliveries do |t|
       t.integer :customer_id
       t.integer :koran_id
+      t.integer :amount
       t.boolean :monday
       t.boolean :tuesday
       t.boolean :wednesday
