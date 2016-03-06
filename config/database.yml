@@ -1,6 +1,8 @@
 # SQLite version 3.x
 #   gem install sqlite3
 #
+# heroku config:set DATABASE_URL='mysql2://b28b14c1133a8c:56363a37@us-cdbr-iron-east-03.cleardb.net/heroku_4e3df2dea580cd5?reconnect=true'
+# CLEARDB_DATABASE_URL:     mysql://bb1ce983552372:a024048d@us-cdbr-iron-east-03.cleardb.net/heroku_5d619fd724e1a8d?reconnect=true
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
@@ -30,7 +32,7 @@ production:
   adapter: mysql2
   encoding: utf8
   host: us-cdbr-iron-east-03.cleardb.net
-  username: beed36ff0959c0
-  database: heroku_1c0f449d0c1259a 
+  username: bb1ce983552372
+  database: heroku_5d619fd724e1a8d
   port: 3306
-  password: fe2041dd
+  password: a024048d
