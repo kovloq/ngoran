@@ -41,6 +41,7 @@ gem 'simple_form'
 gem 'forecast_io'
 
 gem 'carrierwave'
+gem 'rmagick', '2.13.3'
 # gem "rmagick", "~> 2.13.1"
 # gem 'rmagick', require: false
 # gem "rmagick"
