@@ -46,10 +46,10 @@ gem 'carrierwave'
 gem "rmagick"
 # gem "rmagick", "~> 2.12.0", :require => 'RMagick'
 # gem "rmagick", require: 'rmagick'
-# group :production do
+group :production do
 	
-# 	gem 'pg'
-# end
+	gem 'pg'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
