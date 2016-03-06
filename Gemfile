@@ -45,7 +45,7 @@ gem 'carrierwave'
 # gem 'rmagick', require: false
 # gem "rmagick"
 # gem "rmagick", "~> 2.12.0", :require => 'RMagick'
-gem "rmagick", require: 'RMagick'
+# gem "rmagick", require: 'RMagick'
 group :production do
 	
 	gem 'pg'
