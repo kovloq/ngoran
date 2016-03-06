@@ -45,7 +45,7 @@ gem 'carrierwave'
 # gem 'rmagick', require: false
 # gem "rmagick"
 # gem "rmagick", "~> 2.12.0", :require => 'RMagick'
-# gem "rmagick", require: 'RMagick'
+# gem "rmagick", require: 'rmagick'
 group :production do
 	
 	gem 'pg'
@@ -63,7 +63,7 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
- 
+ 	gem "rmagick"
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
