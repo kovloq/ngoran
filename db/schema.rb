@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302124043) do
+ActiveRecord::Schema.define(version: 20160307084752) do
 
   create_table "calendars", force: :cascade do |t|
     t.date     "tanggal"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160302124043) do
   create_table "deliveries", force: :cascade do |t|
     t.integer  "customer_id", limit: 4
     t.integer  "koran_id",    limit: 4
+    t.integer  "amount",      limit: 4
     t.boolean  "monday",      limit: 1
     t.boolean  "tuesday",     limit: 1
     t.boolean  "wednesday",   limit: 1
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 20160302124043) do
     t.boolean  "friday",     limit: 1
     t.boolean  "saturday",   limit: 1
     t.boolean  "sunday",     limit: 1
+    t.string   "color",      limit: 255
   end
 
 end

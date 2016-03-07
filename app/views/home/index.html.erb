@@ -1,17 +1,32 @@
-<h1>新聞配達</h1>
-
-<table class="table">
-	<tr>
-		<th>お客様</th>
-		<th><%= @korans[0].name %></th>
-		<th><%= @korans[1].name %></th>
-		<th><%= @korans[2].name %></th>
-		<th><%= @korans[3].name %></th>
-		<th><%= @korans[4].name %></th>
-		<th><%= @korans[5].name %></th>
-		<th><%= @korans[6].name %></th>
-		<th><%= @korans[7].name %></th>
-		<th><%= @korans[8].name %></th>
-		<th><%= @korans[9].name %></th>
-	</tr>
-</table>
+<h3 class="page-title">新聞配達</h3>
+<div class="page-bar">
+	<ul class="page-breadcrumb">
+		<li>
+			<i class="fa fa-home"></i>
+			<a href="index.html">Home</a>
+			<i class="fa fa-angle-right"></i>
+		</li>
+		<li>
+			<a href="#">新聞配達</a>
+		</li>
+	</ul>
+</div>
+<div class="row">
+	<% @korans.each do |koran| %>
+	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+		<a class="dashboard-stat dashboard-stat-light red-soft" href="javascript:;">
+		<div class="visual">
+			<i class="fa fa-globe"></i>
+		</div>
+		<div class="details">
+			<div class="number">
+				 <%= koran.deliveries.size %>
+			</div>
+			<div class="desc">
+				 <%= koran.name %>
+			</div>
+		</div>
+		</a>
+	</div>
+	<% end %>
+</div>
