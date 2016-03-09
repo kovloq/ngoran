@@ -3,7 +3,7 @@ class CreateCalendars < ActiveRecord::Migration
     create_table :calendars do |t|
       t.date :tanggal
       t.string :event
-      t.boolean :type
+      t.boolean :tipe
 
       t.timestamps null: false
     end

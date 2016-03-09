@@ -6,7 +6,7 @@
 </style>
 <div class="row">
 	<div class="col-md-12">
-		<div class="portlet box green-meadow">
+		<div class="portlet box red">
 			<div class="portlet-title">
 				
 				<div class="caption">
@@ -16,11 +16,37 @@
 			<div class="portlet-body">
 				<div class="row">
 					<div class="col-md-3 col-sm-12">
-                        <ul class="list-group">
-                            <% @calendars.each do |calendar| %>
-                            <li class="list-group-item"><a href="#" data="<%= calendar.tanggal %>" class="goto"><%= calendar.event %> <%= calendar.tanggal %></a></li>
-                            <% end %>
-                        </ul>
+                        <div class="tabbable-line">
+                            <ul class="nav nav-tabs ">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#tabjepang" aria-expanded="true">
+                                    日本の休み</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#tabasahi" aria-expanded="true">
+                                    朝日新聞の休み</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div id="tabjepang" class="tab-pane active">
+                                <ul class="list-group">
+                                    <% @calendar_jepang.each do |calendar| %>
+                                    <li class="list-group-item"><a href="#" data="<%= calendar.tanggal %>" class="goto"><%= calendar.event %> <%= calendar.tanggal %></a></li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                            <div id="tabasahi" class="tab-pane">
+                                <ul class="list-group">
+                                    <% @calendar_asahi.each do |calendar| %>
+                                    <li class="list-group-item"><a href="#" data="<%= calendar.tanggal %>" class="goto"><%= calendar.event %> <%= calendar.tanggal %></a></li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                            
+                        
 					</div>
 					<div class="col-md-9 col-sm-12">
 						<div id="calendar">

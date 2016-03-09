@@ -1,6 +1,7 @@
 class CalendarsController < ApplicationController
   def index
-    @calendars=Calendar.order("tanggal ASC");
+    @calendar_jepang=Calendar.where("tipe=?","1").order("tanggal ASC");
+    @calendar_asahi=Calendar.where("tipe=?","0").order("tanggal ASC");
     @scripts=Calendar.select("event as title,tanggal as start");
   end
 
@@ -28,7 +29,7 @@ class CalendarsController < ApplicationController
 
   private
   def calendar_params
-    params.require(:calendar).permit(:tanggal, :event)
+    params.require(:calendar).permit(:tanggal, :event, :tipe)
   end
 
 end
