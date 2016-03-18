@@ -1,14 +1,28 @@
 Rails.application.routes.draw do
   
 
+  get 'login', to: 'login#index'
+
+  post 'login/action'
+
+  resources :branches
+  resources :users
+
+  # devise_for :users, :skip => [:registrations], controllers: { sessions: "users/sessions",registrations: "users/registrations",confirmations: "users/confirmations",passwords: "users/passwords" }
   resources :days
 
   get 'weather/index'
+
+  # post '/adminusers', to: 'adminusers#create', as: 'users'
 
   resources :calendars
   get 'map/index'
   resources :korans
   resources :customers do
+    member do
+      get 'copy'
+      post 'copyaction'
+    end
     resources :deliveries
   end
 

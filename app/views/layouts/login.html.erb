@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Expense Manager" name="description"/>
+<meta content="Perdana Adhitama" name="author"/>
+  <title>Ngoran</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+	<link rel="shortcut icon" href="favicon.ico"/>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'login' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script>
+    jQuery(document).ready(function() {    
+    Metronic.init(); // init metronic core components
+	Layout.init(); // init current layout
+ });
+</script>
+</head>
+<body class="login">
+<div class="logo">
+  <a href="index.html">
+  <img alt="" src="/images/white_logo.png">
+  </a>
+</div>
+<div class="content">
+  <%= yield %>
+</div>
+</body>
+</html>

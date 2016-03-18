@@ -2,11 +2,12 @@
 
 <h1>Listing Deliveries</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Customer</th>
+      
       <th>Koran</th>
+      <th>Amount</th>
       <th>Monday</th>
       <th>Tuesday</th>
       <th>Wednesday</th>
@@ -21,15 +22,16 @@
   <tbody>
     <% @deliveries.each do |delivery| %>
       <tr>
-        <td><%= delivery.customer_id %></td>
-        <td><%= delivery.koran_id %></td>
-        <td><%= delivery.monday %></td>
-        <td><%= delivery.tuesday %></td>
-        <td><%= delivery.wednesday %></td>
-        <td><%= delivery.thursday %></td>
-        <td><%= delivery.friday %></td>
-        <td><%= delivery.saturday %></td>
-        <td><%= delivery.sunday %></td>
+        
+        <td><%= delivery.koran.name %></td>
+        <td><%= delivery.amount %></td>
+        <td><%= delivery.monday ? raw('<i class="glyphicon glyphicon-ok"></i>') : raw('<i class="glyphicon glyphicon-remove"></i>') %></td>
+        <td><%= delivery.tuesday ? raw('<i class="glyphicon glyphicon-ok"></i>') : raw('<i class="glyphicon glyphicon-remove"></i>') %></td>
+        <td><%= delivery.wednesday ? raw('<i class="glyphicon glyphicon-ok"></i>') : raw('<i class="glyphicon glyphicon-remove"></i>') %></td>
+        <td><%= delivery.thursday ? raw('<i class="glyphicon glyphicon-ok"></i>') : raw('<i class="glyphicon glyphicon-remove"></i>') %></td>
+        <td><%= delivery.friday ? raw('<i class="glyphicon glyphicon-ok"></i>') : raw('<i class="glyphicon glyphicon-remove"></i>') %></td>
+        <td><%= delivery.saturday ? raw('<i class="glyphicon glyphicon-ok"></i>') : raw('<i class="glyphicon glyphicon-remove"></i>') %></td>
+        <td><%= delivery.sunday ? raw('<i class="glyphicon glyphicon-ok"></i>') : raw('<i class="glyphicon glyphicon-remove"></i>') %></td>
         <td><%= link_to 'Show', customer_delivery_path(params[:customer_id],delivery) %></td>
         <td><%= link_to 'Edit', edit_customer_delivery_path(params[:customer_id],delivery) %></td>
         <td><%= link_to 'Destroy', customer_delivery_path(params[:customer_id],delivery), method: :delete, data: { confirm: 'Are you sure?' } %></td>

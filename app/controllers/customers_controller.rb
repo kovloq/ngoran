@@ -21,6 +21,16 @@ class CustomersController < ApplicationController
   def edit
   end
 
+  def copy
+    @customer = Customer.find(params[:id])
+  end
+
+  def copyaction
+    @customer= Customer.new(customer_params)
+    @customer.save
+    redirect_to customers_path
+  end
+
   # POST /customers
   # POST /customers.json
   def create

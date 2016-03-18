@@ -15,6 +15,7 @@
             <th><i class="fa fa-building"></i>Buiding Name</th>
             <th> Room Number</th>
             <th>新聞</th>
+            <th >Copy</th>
             <th >Show</th>
             <th >Edit</th>
             <th >Delete</th>
@@ -27,7 +28,8 @@
               <td><%= customer.name %></td>
               <td><%= customer.building_name %></td>
               <td><%= customer.room_number %></td>
-              <td><%= link_to '新聞', customer %></td>
+              <td><%= link_to '新聞', customer_deliveries_path(customer) %></td>
+              <td><%= link_to 'Copy', copy_customer_path(customer) %></td>
               <td><%= link_to 'Show', customer %></td>
               <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
               <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

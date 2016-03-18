@@ -3,6 +3,7 @@
 #
 # heroku config:set DATABASE_URL='mysql2://b28b14c1133a8c:56363a37@us-cdbr-iron-east-03.cleardb.net/heroku_4e3df2dea580cd5?reconnect=true'
 # CLEARDB_DATABASE_URL:     mysql://bb1ce983552372:a024048d@us-cdbr-iron-east-03.cleardb.net/heroku_5d619fd724e1a8d?reconnect=true
+#heroku addons:create cleardb:ignite --fork=mysql2://b28b14c1133a8c:56363a37@us-cdbr-iron-east-03.cleardb.net/heroku_4e3df2dea580cd5?reconnect=true
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #

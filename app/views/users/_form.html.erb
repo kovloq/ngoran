@@ -1,0 +1,23 @@
+
+<div class="portlet box red">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-user"></i>
+      User
+    </div>
+  </div>
+  <div class="portlet-body form">
+	<%= simple_form_for(@user, multipart: true) do |f| %>
+	  <%= f.error_notification %>
+	  <div class="form-body">
+	  	
+		  	<%= f.input :email,class: 'form-control' %>
+		  	<%= f.input :encrypted_password,label: 'Password',class: 'form-control' %>
+		<%=  f.association :branch, label_method: :name, value_method: :id, include_blank: false %>
+	  </div>
+	  <div class="form-actions right">
+	    <%= f.button :submit %>
+	  </div>
+	<% end %>
+   </div>
+</div>

@@ -33,21 +33,21 @@ class DeliveriesController < ApplicationController
   # POST /deliveries
   # POST /deliveries.json
   def create
-    @customer = Customer.find(params[:customer_id])
+    # @customer = Customer.find(params[:customer_id])
     @days=Day.all
     @korans=Koran.all
 
-    @customer=Customer.new(customer_params);
-    @customer.save;
-    params[:delivery][:customer_id]=@customer.id
+    # @customer=Customer.new(customer_params);
+    # @customer.save;
+    params[:delivery][:customer_id]=params[:id]
     @delivery = Delivery.new(delivery_params);
     respond_to do |format|
       if @delivery.save
-        params[:koran_option][:delivery_id]=@delivery.id
-        params[:koran_option][:koran_id]=@delivery.koran_id
-        @koran_option=KoranOption.new(option_params);
-        @koran_option.save
-        format.html { redirect_to @delivery, notice: 'Delivery was successfully created.' }
+        # params[:koran_option][:delivery_id]=@delivery.id
+        # params[:koran_option][:koran_id]=@delivery.koran_id
+        # @koran_option=KoranOption.new(option_params);
+        # @koran_option.save
+        format.html { redirect_to customer_deliveries_path, notice: 'Delivery was successfully created.' }
         format.json { render :show, status: :created, location: @delivery }
       else
         format.html { render :new }
@@ -100,6 +100,6 @@ class DeliveriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def delivery_params
-      params.require(:delivery).permit(:customer_id, :koran_id, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday)
+      params.require(:delivery).permit(:customer_id, :koran_id, :amount,:monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday)
     end
 end
