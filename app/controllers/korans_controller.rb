@@ -1,5 +1,5 @@
 class KoransController < ApplicationController
-  before_action :set_koran, only: [:show, :edit, :update, :destroy]
+  before_action :set_koran,:require_login, only: [:show, :edit, :update, :destroy]
 
   # GET /korans
   # GET /korans.json

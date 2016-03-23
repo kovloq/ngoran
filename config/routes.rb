@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
 
+  get 'user/profile'
+  get 'user/logout'
+
   get 'login', to: 'login#index'
 
   post 'login/action'
@@ -11,7 +14,7 @@ Rails.application.routes.draw do
   # devise_for :users, :skip => [:registrations], controllers: { sessions: "users/sessions",registrations: "users/registrations",confirmations: "users/confirmations",passwords: "users/passwords" }
   resources :days
 
-  get 'weather/index'
+  get 'weather', to: 'weather#index'
 
   # post '/adminusers', to: 'adminusers#create', as: 'users'
 

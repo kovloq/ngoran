@@ -1,4 +1,5 @@
 class CalendarsController < ApplicationController
+  before_action :require_login
   def index
     @calendar_jepang=Calendar.where("tipe=?","1").order("tanggal ASC");
     @calendar_asahi=Calendar.where("tipe=?","0").order("tanggal ASC");

@@ -1,4 +1,5 @@
 class WeatherController < ApplicationController
+	before_action :require_login
 	require 'forecast_io'
   def index
   	ForecastIO.api_key = 'c4e6472a3c00209953cc61e4db075e65'
