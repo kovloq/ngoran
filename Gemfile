@@ -48,7 +48,7 @@ gem 'rmagick', '2.13.3'
 # gem "rmagick", "~> 2.12.0", :require => 'RMagick'
 # gem "rmagick", require: 'rmagick'
 group :production do
-	
+	gem 'rails_12factor'
 	gem 'pg'
 end
 
