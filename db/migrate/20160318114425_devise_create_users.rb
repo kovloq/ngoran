@@ -39,5 +39,5 @@ class DeviseCreateUsers < ActiveRecord::Migration
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end
-  execute 'ALTER TABLE `users` CONVERT TO CHARACTER SET utf8';
+  # execute 'ALTER TABLE `users` CONVERT TO CHARACTER SET utf8';
 end

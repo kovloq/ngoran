@@ -10,6 +10,6 @@ class CreateBranches < ActiveRecord::Migration
     end
     add_column :users, :branch_id, :integer
     add_column :users, :name, :string
-    execute 'ALTER TABLE `branches` CONVERT TO CHARACTER SET utf8';
+    # execute 'ALTER TABLE `branches` CONVERT TO CHARACTER SET utf8';
   end
 end
